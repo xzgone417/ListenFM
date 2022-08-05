@@ -1,4 +1,4 @@
-import { FC, RefObject, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { history } from '@umijs/max';
 //一旦使用了@umijs/max之后，那么就是 import all from '@umijs/max'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -6,17 +6,14 @@ import { Link, NavLink, Outlet } from "@umijs/max";
 import styles from '@/layouts/index.less';
 import { connect } from '@umijs/max';
 import { PauseCircleOutlined, PlayCircleOutlined } from "@ant-design/icons";
-import Listen from "@/components/Listen";
-import Playbar from "@/components/Playbar";
 
 const Layout: FC = (FM:any) => {
-// const [whostop, setStop] = useState<boolean>(true);
-// const audioRef: RefObject<HTMLAudioElement> = useRef<HTMLAudioElement>(null);
+const [whostop, setStop] = useState<boolean>(true);
     // 初始直接跳转home
-    // useEffect(()=>{
-    //     history.push('/home');
-    // },[])
-    // console.log(FM,"sssssuuuuuuuuuu");
+    useEffect(()=>{
+        history.push('/home');
+    },[])
+    console.log(FM,"sssssuuuuuuuuuu");
     
     // const changefunc = () => {
     //     // 改变播放/暂停图片,类型断言要放在后面
@@ -28,10 +25,28 @@ const Layout: FC = (FM:any) => {
     //       audioRef.current!.pause();
     //     }  
     //   }
-    return <div>
-        <Outlet/>  
-        <Listen></Listen>
 
+
+    return <div>
+
+        <Outlet/>   
+        <Link to={`/FMplayer/${FM.FMplayer.id}`}>
+         {FM.FMplayer.FMsong.title ? 
+        <div className={styles.player}>
+        <div className={styles.westop}>
+              {whostop ? <PauseCircleOutlined></PauseCircleOutlined> : <PlayCircleOutlined></PlayCircleOutlined>}
+            </div>  
+           <div className={styles.song}>
+           <audio src={FM.FMplayer.FMsong.url} autoPlay={true}>
+            </audio>
+         <div className={styles.songt}>{FM.FMplayer.FMsong.title}</div>
+            <div className={styles.songb}>{FM.FMplayer.FMsong.speak}</div>    
+           </div>
+        </div>
+        :
+        <div className={styles.playernot}>聆听FM，世界和我爱着你</div>
+         }
+        </Link>
         
     </div>
 }

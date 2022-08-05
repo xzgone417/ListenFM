@@ -27,19 +27,19 @@ export default defineConfig({
   // 配置额外的 meta 标签
   metas: [
   ],
-
   // 代理配置
   proxy: {
+    '/fm2': {
+      'target': 'http://bapi.xinli001.com/',
+      'changeOrigin': true,
+      // 'pathRewrite': { '^/fm2': '' },
+    },
     '/fm': {
       'target': 'http://yiapi.xinli001.com',
       'changeOrigin': true,
       // 'pathRewrite': { '^/fm': '' },
-    },
-      '/fm2': {
-      'target': 'http://bapi.xinli001.com',
-      'changeOrigin': true,
-      // 'pathRewrite': { '^/fm2': '' },
     }
+ 
   },
 
   routes: [
@@ -47,9 +47,20 @@ export default defineConfig({
       path: "/",
       component: '@/layouts/index2',
       routes: [
-        { path: "/home", component: "home", title: "首页" },
+        { path: "/", component: "home", title: "首页" },
+        { path: "/search", component: "search", title: "搜索" },
+        { path: "/FMplayer/:id", component: "FMplayer", title: "FM播放器" },
+        
+        {path:"/my",component:"my",title:"我的"},
+        {path:"/zhubo/:id",component:"zhubo",title:"主播详情"},
+        {path:"/mycare",component:"mycare",title:"我关注的电台"},
+        {path:"/myCollection",component:"myCollection",title:"我收藏的播单"},
+        {path:"/myTopic",component:"myTopic",title:"我的话题"},
+        {path:"/myInform",component:"myInform",title:"我的通知"},
+        {path:"/myTopicReply",component:"myTopicReply",title:"话题回复"},
       ]
-    }
+    },
+    { path: "*", redirect: "/home" },
   ],
 
   // 开启ant design插件
@@ -65,6 +76,7 @@ export default defineConfig({
   },
   // 开启request插件
   request: {
+    // 从接口只拿data词条数据
     dataField: 'data'
   },
   // 开启dva

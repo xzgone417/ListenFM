@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.top {
+  // overflow: visible;
+  // padding-bottom: 35px;
+  color: white;
+  text-align: center;
+  position: relative;
+
+  .zhuboimg1 {
+    width: 100%;
+    filter: blur(15px);
+    position: absolute;
+    z-index: -100;
+    .img{
+      width: 100%;
+      height: 240px;
+    }
+  }
+
+  .zhuboimg {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    margin: auto;
+    margin-bottom: 20px;
+    position: relative;
+    top: 20px;
+  
+  }
+  .pp{
+    letter-spacing: 2px;
+    // overflow: visible;
+    :first-child{
+      // position: -webkit-sticky;
+      // position: sticky;
+      // top: 10px;
+      padding-top: 5px;
+    }
+  }
+
+  .care {
+    width: 30%;
+    border: 1px solid white;
+    margin: auto;
+    border-radius: 50px;
+    padding: 5px;
+  }
+}
+
+.bofang {
+  background-color: white;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 40px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  :first-child {
+    margin-left: 10px;
+  }
+
+  :last-child {
+    float: right;
+    margin-right: 10px;
+  }
+}
+
+.list {
+  margin: 10px 0 0 5px;
+  display: flex;
+
+  .listimg {
+    width: 50px;
+    height: 50px;
+  }
+
+  ul {
+    list-style: none;
+    flex: 2;
+    margin-left: 5px;
+
+    :first-child {
+      font-size: 12px;
+    }
+
+    :nth-child(2) {
+      font-size: 8px;
+      color: gray;
+      float: left;
+    }
+
+    .logo {
+      width: 12px;
+      height: 12px;
+      margin-left: 10px;
+    }
+
+    :last-child {
+      font-size: 8px;
+      color: gray;
+      float: left;
+      margin-left: 20px;
+    }
+  }
+}

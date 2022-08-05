@@ -1,0 +1,152 @@
+.contanier{
+
+    .cover{
+        display:flex;
+        justify-content: center;
+        // 外部组件样式是全局样式，那么我们就需要全局修改
+        :global{
+            .adm-image-img{
+                border-radius: 10px;
+            }
+        }
+      
+    };
+    .song{
+        margin: 25px 40px 30px 42px;
+        .title{
+          font-size: 15px;
+        }
+        .speak{
+            margin-top: 10px;
+           .speaker{
+            margin-right: 10px;
+           }
+        }
+    };
+    .myicons{
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    width: 290px;
+    margin: 0 auto;
+    };
+
+    .linebox{
+        margin-top: 30px;
+        // 、、、、、、
+        .audioWrapper {
+            // background-color: #fcfcfc;
+            margin: 20px auto;
+            max-width: 375px;
+            height: 20px;
+            // border: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: center;
+            
+        }
+        
+        
+        .audioright {  
+            width: 80%;
+            height: 100%;
+        }
+        
+    
+        
+        .progressbarbg {
+            background-color: #d9d9d9;
+            position: relative;
+            height: 2px;
+            cursor: pointer;
+        }
+        
+        .progressbar {
+            background-color: #649fec;
+            width: 0;
+            height: 2px;
+        }
+        
+        .progressbarbg span {
+            content: " ";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            background-color: #3e87e8;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -5px;
+            margin-left: -5px;
+            cursor: pointer;
+        }
+        
+        .audiotime {
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        
+        .audiolengthtotal {
+            float: right;
+            font-size: 12px;
+        }
+        
+        .audiolengthcurrent {
+            float: left;
+            font-size: 12px;
+        }
+    
+    // 
+        .control{
+            display: flex;
+            justify-content: space-between;
+            font-size: 30px;
+            width: 300px;
+            margin: 30px auto 20px auto;
+            .singleFM{
+                font-size: 28px;
+                display: inline-block;
+                margin-top: -8px;
+                width: 30px;
+                height: 30px;
+            }
+            .westop{
+                font-size: 50px;
+                margin-top: -20px;
+                width: 60px;
+                height: 60px;
+            };
+            // 弹出层
+       
+        }
+
+        }
+  
+};
+// 
+      // 控制层写到外面来了罢了
+      .poplist{
+        .popon{
+            padding: 10px;
+            border-bottom: 1px solid #d9d9d9;
+        }
+       .listsong{
+        padding: 8px;
+        border-bottom: 1px solid #d9d9d9;
+
+        .listsongtitle{
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 13px;
+        }
+        .listsonger{
+            color: gray;
+            font-size: 7px;
+        }
+       }
+    }
+
+    :global{
+        @import url("@/assets/xzg/iconfont.css");
+    }
