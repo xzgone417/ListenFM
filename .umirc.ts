@@ -6,13 +6,12 @@ export default defineConfig({
   // 1. @ 表示 项目 src 目录
   // 2. @@ 表示 临时目录，通常是 src/.umi 目录
   // 3. umi 表示 当前所运行的 umi 仓库目录
-  alias: {
-  },
+  alias: {},
   // 开启文件hash后缀
   hash: true,
   // 启用 history 路由
   history: {
-    type: 'browser'
+    type: 'browser',
   },
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn
   theme: { '@primary-color': '#1DA57A' },
@@ -25,31 +24,38 @@ export default defineConfig({
   // 配置图片文件是否走 base64 编译的阈值
   inlineLimit: 10000,
   // 配置额外的 meta 标签
-  metas: [
-  ],
+  metas: [],
 
   // 代理配置
   proxy: {
+    '/fm2': {
+      target: 'http://bapi.xinli001.com',
+      changeOrigin: true,
+      // 'pathRewrite': { '^/fm2': '' },
+    },
     '/fm': {
-      'target': 'http://yiapi.xinli001.com',
-      'changeOrigin': true,
+      target: 'http://yiapi.xinli001.com',
+      changeOrigin: true,
       // 'pathRewrite': { '^/fm': '' },
     },
-      '/fm2': {
-      'target': 'http://bapi.xinli001.com',
-      'changeOrigin': true,
-      // 'pathRewrite': { '^/fm2': '' },
-    }
   },
 
   routes: [
     {
-      path: "/",
+      path: '/',
       component: '@/layouts/index2',
       routes: [
-        { path: "/home", component: "home", title: "首页" },
-      ]
-    }
+        { path: '/home', component: 'home', title: '心聆' },
+        { path: '/my', component: 'my', title: '我的' },
+      ],
+    },
+    { path: '/zhubo', component: 'zhubo', title: '主播详情' },
+    { path: '/mycare', component: 'mycare', title: '我关注的电台' },
+    { path: '/myCollection', component: 'myCollection', title: '我收藏的播单' },
+
+    { path: '/myTopic', component: 'myTopic', title: '我的话题' },
+    { path: '/myInform', component: 'myInform', title: '我的通知' },
+    { path: '/myTopicReply', component: 'myTopicReply', title: '话题回复' },
   ],
 
   // 开启ant design插件
@@ -60,15 +66,14 @@ export default defineConfig({
   initialState: {},
   // 开启locale插件
   locale: {
-    default: 'zh-CN',    // 默认使用 src/locales/zh-CN.ts 作为多语言文件
-    baseSeparator: '-'
+    default: 'zh-CN', // 默认使用 src/locales/zh-CN.ts 作为多语言文件
+    baseSeparator: '-',
   },
   // 开启request插件
   request: {
-    dataField: 'data'
+    dataField: 'data',
   },
   // 开启dva
   dva: {},
-  npmClient: 'pnpm'
+  npmClient: 'pnpm',
 });
-
